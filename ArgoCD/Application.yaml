@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: rails-app
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  source:
+    repoURL: https://github.com/vibin3021/Technical-Assessment-Submission/new/main
+    targetRevision: HEAD
+    path: manifests
+  project: default
+  syncPolicy:
+    automated:
+      selfHeal: true
+                prune: true
